@@ -1,0 +1,19 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'Video_Games.xlsx'
+
+df = pd.read_excel(file_path)
+
+sns.set_palette("PuRd")
+
+playtime_by_region_rating = df.groupby(['Region', 'Rating'])['Playtime_Hours'].mean().reset_index()
+plt.figure(figsize=(12, 8))
+
+bar_plot = sns.barplot(x='Rating', y='Playtime_Hours', hue='Region', data=playtime_by_region_rating)
+plt.title('Average Playtime Hours per Region and Rating')
+plt.xlabel('Rating')
+plt.ylabel('Average Playtime Hours')
+
+plt.show()

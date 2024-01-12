@@ -1,0 +1,23 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'Video_Games.xlsx'
+
+df = pd.read_excel(file_path)
+
+sns.set_palette("PuRd")
+
+# Create a crosstab table of the data
+pd_crosstab = pd.crosstab(df["Genre"], df["Region"])
+print(pd_crosstab)
+plt.title('Preferred Genres Across Regions')
+
+# Plot a heatmap of the table
+sns.heatmap(pd_crosstab)
+
+# Rotate tick marks for visibility
+
+
+
+plt.show()

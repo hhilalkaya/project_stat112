@@ -1,0 +1,20 @@
+import pandas as pd 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'Video_Games.xlsx'
+
+data_set = pd.read_excel(file_path)
+
+sns.set(style="whitegrid", palette="PuRd")
+
+regions = data_set['Region'].unique()
+for region in regions:
+    region_data = data_set[data_set['Region'] == region]
+    plt.figure()
+    sns.boxplot(x='Rating', y='Global_Sales', data=region_data)
+    plt.title(f'Box Plot for {region}')
+    plt.xlabel('Rating')
+    plt.ylabel('Global Sales')
+
+plt.show()

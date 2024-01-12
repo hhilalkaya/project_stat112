@@ -1,0 +1,29 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'Video_Games.xlsx'
+
+df = pd.read_excel(file_path)
+
+sns.set_palette("PuRd")
+
+total_global_sales = df['Global_Sales'].sum()
+
+sns.catplot( data = df , kind ="bar" , x="Multiplayer_Mode" , y="Global_Sales" )
+
+plt.xlabel('Multiplayer Mode')
+plt.ylabel('Global Sales (in Millions)')
+plt.title('Effects Of Multiplayer Mode On Global Sales' , pad = -10)
+
+
+
+# Show plot
+plt.show()
+
+
+
+
+
+
+

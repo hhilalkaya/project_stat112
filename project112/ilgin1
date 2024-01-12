@@ -1,0 +1,18 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'Video_Games.xlsx'
+
+data_set = pd.read_excel(file_path)
+
+sns.set_palette("PuRd")
+
+sns.set(style="whitegrid", palette="Reds")
+sns.violinplot(x='Region', y='Global_Sales', data=data_set)
+
+plt.title('Distribution of Global Sales Between Different Regions')
+plt.xlabel('Region')
+plt.ylabel('Global Sales')
+
+plt.show()

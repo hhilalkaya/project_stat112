@@ -1,0 +1,24 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'Video_Games.xlsx'
+
+df = pd.read_excel(file_path)
+
+sns.set_palette("PuRd")
+
+plt.figure(figsize=(12, 8))
+scatter_plot = sns.scatterplot(x='Critic_Score', y='User_Score', size='Global_Sales', sizes=(20, 200), hue='Global_Sales', data=df)
+plt.title('Relationship Between Critic Score, User Score, and Global Sales')
+plt.xlabel('Critic Score')
+plt.ylabel('User Score')
+
+# Add a black dashed line
+plt.plot([df['Critic_Score'].min(), df['Critic_Score'].max()], [df['User_Score'].min(), df['User_Score'].max()], color='black', linestyle='--', label='Diagonal Line')
+
+# Show the legend
+plt.legend()
+
+# Show the plot
+plt.show()
